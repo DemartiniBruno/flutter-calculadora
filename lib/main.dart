@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_calculadora/pages/navegacao_teste/navegacao_teste.dart';
 
 void main() {
   runApp(const MyApp());
@@ -125,13 +126,6 @@ class _CalculadoraState extends State<Calculadora> {
   String _valorDigitado = '';
   int _valorOperacao = 0;
 
-/*  void _somaValor(valorOperacao) {
-    setState(() {
-      _valorAtual=_valorAtual+_valorDigitado;
-    });
-  }*/
-  
-  
 
   @override
   Widget build(BuildContext context) {
@@ -270,6 +264,23 @@ class _CalculadoraState extends State<Calculadora> {
                       ),
                     ],
                   ),
+                  TextButton(
+                      onPressed: (){
+                        setState(() {
+                          _valorDigitado = '';
+                          _valorOperacao = 0;
+                        });
+                      },
+                      child: Text('cc')
+                  ),
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => NavegacaoTeste(nomeBotao: 'Nomeado',))
+                      );
+                    },
+                    child: Text('Nav'),
+                  ),
                 ],
               ),
             )
@@ -279,10 +290,3 @@ class _CalculadoraState extends State<Calculadora> {
     );
   }
 }
-
-
-/*
-*
-* Usar a merda do expanded e definir um "Padding" pra ele se adaptar de acordo com o bosta do padding
-*
-* */
