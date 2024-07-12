@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_calculadora/pages/get_all_categories.dart';
 import 'package:flutter_calculadora/pages/navegacao_teste/navegacao_teste.dart';
 import 'package:flutter_calculadora/pages/post_teste.dart';
+import 'package:flutter_calculadora/pages/things/things.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Calculadora(title: 'teste2'),
+/*      home: const Calculadora(title: 'teste2'),*/
+      home: Things(),
     );
   }
 }
@@ -286,10 +288,10 @@ class _CalculadoraState extends State<Calculadora> {
                   ElevatedButton(
                     onPressed: (){
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => PostTeste())
+                          MaterialPageRoute(builder: (context) => Things())
                       );
                     },
-                    child: Text('Post'),
+                    child: Text('Things'),
                   ),
                   ElevatedButton(
                     onPressed: (){
