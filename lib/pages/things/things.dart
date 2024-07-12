@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_calculadora/pages/things/detail_thing.dart';
 import '../../main.dart';
 import '../../models/things_model.dart';
 import '../../services/things_services.dart';
@@ -40,9 +41,17 @@ class _things extends State<Things>{
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return TextButton(
-                    onPressed: (){},
+                    onPressed: ()async{
+                      print(snapshot.data![index].id);
+                      bool refresh = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context)=>DetailThing(categoryId: snapshot.data![index].id)
+                          )
+                      );
+                    },
                     child: Text(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 22
                       ),
                       '${snapshot.data![index].name}'
@@ -69,8 +78,8 @@ class _things extends State<Things>{
             });
           }
         },
-        child: Icon(Icons.add),
         backgroundColor: Colors.amber,
+        child: const Icon(Icons.add),
       ),
     );
   }

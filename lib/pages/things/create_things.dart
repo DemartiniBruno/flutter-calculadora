@@ -19,7 +19,7 @@ class _CreateThing extends State<CreateThing>{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: Text('Create a new Thing'),
+        title: const Text('Create a new Thing'),
       ),
       body: Center(
         child: SizedBox(
@@ -28,6 +28,7 @@ class _CreateThing extends State<CreateThing>{
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
+                autofocus: true,
                 decoration: InputDecoration(border: OutlineInputBorder()),
                 controller: _nameThing
               ),

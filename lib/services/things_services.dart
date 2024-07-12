@@ -13,6 +13,15 @@ Future<List<Thing>> getAllThings() async {
 }
 
 /*
+* Get one thing
+* */
+Future<Thing> getOneThing(thingId) async{
+  var url = Uri.parse('http://192.168.3.221:3000/things/$thingId');
+  final response = await http.get(url, headers: {'Content-Type': 'application/json'});
+  return Thing.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+}
+
+/*
 * Create new thing
 * */
 Future<Thing> createThing(name, value) async{
