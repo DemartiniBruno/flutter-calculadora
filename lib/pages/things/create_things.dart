@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_calculadora/pages/things/things.dart';
 
 import '../../services/things_services.dart';
 
@@ -40,10 +41,11 @@ class _CreateThing extends State<CreateThing>{
                   onPressed: (){
                     print(_nameThing.text);
                     print(_valueThing.text);
-                    setState(() {
-                      createThing(_nameThing.text, _valueThing.text);
+                    setState(() async {
+                      await createThing(_nameThing.text, _valueThing.text);
                       _nameThing.clear();
                       _valueThing.clear();
+                      Navigator.pop(context, true);
                     });
                   },
                   child: Text('Cadastrar')

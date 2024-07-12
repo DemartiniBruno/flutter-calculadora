@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_calculadora/pages/get_all_categories.dart';
 import 'package:flutter_calculadora/pages/navegacao_teste/navegacao_teste.dart';
 import 'package:flutter_calculadora/pages/post_teste.dart';
+import 'package:flutter_calculadora/pages/things/create_things.dart';
 import 'package:flutter_calculadora/pages/things/things.dart';
 
 void main() {
@@ -23,7 +24,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 /*      home: const Calculadora(title: 'teste2'),*/
-      home: Things(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Things(),
+        '/second': (context) => CreateThing()
+      },
     );
   }
 }

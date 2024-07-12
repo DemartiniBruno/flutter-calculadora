@@ -18,6 +18,10 @@ class _things extends State<Things>{
   @override
   void initState() {
     super.initState();
+    _atualizalista();
+  }
+
+  void _atualizalista(){
     _futureThings = getAllThings();
   }
 
@@ -52,10 +56,18 @@ class _things extends State<Things>{
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => CreateThing())
+        onPressed: () async {
+          bool refresh = await Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context)=>CreateThing()
+            )
           );
+          if(refresh==true){
+            setState(() {
+              _futureThings = getAllThings();
+            });
+          }
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.amber,
