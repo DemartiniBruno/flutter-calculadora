@@ -21,7 +21,7 @@ class _postTeste extends State<PostTeste>{
           ElevatedButton(
               onPressed: (){
                 setState(() {
-                  createCategory('TesteApi 2');
+                  createCategory('TesteApi FInal');
                 });
               },
               child: Text('Post'))

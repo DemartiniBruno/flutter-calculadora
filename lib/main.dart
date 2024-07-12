@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_calculadora/pages/get_all_categories.dart';
 import 'package:flutter_calculadora/pages/navegacao_teste/navegacao_teste.dart';
 import 'package:flutter_calculadora/pages/post_teste.dart';
 
@@ -274,14 +275,14 @@ class _CalculadoraState extends State<Calculadora> {
                       },
                       child: Text('cc')
                   ),
-                  ElevatedButton(
+/*                  ElevatedButton(
                     onPressed: (){
                       Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => NavegacaoTeste(nomeBotao: 'Nomeado',))
                       );
                     },
                     child: Text('Nav'),
-                  ),
+                  ),*/
                   ElevatedButton(
                     onPressed: (){
                       Navigator.of(context).push(
@@ -289,6 +290,14 @@ class _CalculadoraState extends State<Calculadora> {
                       );
                     },
                     child: Text('Post'),
+                  ),
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => GetAllCategories())
+                      );
+                    },
+                    child: Text('GetAll'),
                   ),
                 ],
               ),
