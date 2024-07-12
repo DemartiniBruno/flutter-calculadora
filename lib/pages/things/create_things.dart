@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_calculadora/pages/things/things.dart';
 
 import '../../services/things_services.dart';
@@ -34,20 +35,29 @@ class _CreateThing extends State<CreateThing>{
               ),
               const SizedBox(height: 10),
               TextField(
+                keyboardType: TextInputType.number, // -> define o tipo de declado que vai abrir
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly // -> bloqueia para não aceitar letras
+                ],
                 decoration: InputDecoration(border: OutlineInputBorder()),
                 controller: _valueThing,
               ),
               const SizedBox(height: 10),
               ElevatedButton(
                   onPressed: (){
-                    print(_nameThing.text);
-                    print(_valueThing.text);
-                    setState(() async {
-                      await createThing(_nameThing.text, _valueThing.text);
-                      _nameThing.clear();
-                      _valueThing.clear();
-                      Navigator.pop(context, true);
-                    });
+                    if(_nameThing.text.isEmpty || _valueThing.text.isEmpty){
+                      /*
+                      * Adicionar validações
+                      * */
+                      print('Adicionar validações');
+                    } else {
+                      setState(() async {
+                        await createThing(_nameThing.text, _valueThing.text);
+                        _nameThing.clear();
+                        _valueThing.clear();
+                        Navigator.pop(context, true);
+                      });
+                    }
                   },
                   child: Text('Cadastrar')
               ),
