@@ -52,6 +52,8 @@ class _CreateThing extends State<CreateThing>{
                       print('Adicionar validações');
                     } else {
                       setState(() async {
+                        //Faltou esse await aqui, então ele até atualizava a tela antes
+                        //Mas por não esperar criar uma thing nova não tinha nenhum registro novo
                         await createThing(_nameThing.text, _valueThing.text);
                         _nameThing.clear();
                         _valueThing.clear();

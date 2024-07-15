@@ -42,13 +42,17 @@ class _things extends State<Things>{
               itemBuilder: (context, index) {
                 return TextButton(
                     onPressed: ()async{
-                      print(snapshot.data![index].id);
                       bool refresh = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context)=>DetailThing(categoryId: snapshot.data![index].id)
+                              builder: (context)=>DetailThing(thingId: snapshot.data![index].id)
                           )
                       );
+                      if(refresh==true){
+                        setState(() {
+                          _futureThings = getAllThings();
+                        });
+                      }
                     },
                     child: Text(
                       style: const TextStyle(
